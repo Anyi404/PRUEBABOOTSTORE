@@ -14,16 +14,17 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+
     @Autowired
     private ProductService productService;
 
-    // Obtener todos los productos
+    // Obtener todos los productos de ropa y accesorios para perros
     @GetMapping
     public List<ProductEntity> getAllProducts() {
         return productService.getAllProducts();
     }
 
-    // Obtener un producto por su UUID
+    // Obtener un producto específico por UUID
     @GetMapping("/{id}")
     public ResponseEntity<ProductEntity> getProductById(@PathVariable UUID id) {
         Optional<ProductEntity> product = productService.getProductById(id);
@@ -56,4 +57,3 @@ public class ProductController {
         }
     }
 }
-
